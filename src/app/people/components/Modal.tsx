@@ -64,8 +64,3 @@ const Modal: React.FC<{ person: SwapiPersonResult; onClose: () => void }> = asyn
 }
 
 export default Modal
-
-{
-  /* kérdezzük le a szülőföldjét is,
-melynek jelenítsük meg a nevét, terepét (terrain) és klímáját.n */
-}
