@@ -23,7 +23,7 @@ const Modal: React.FC<{ person: SwapiPersonResult; onClose: () => void }> = asyn
         className="modal-bg fixed inset-0 bg-black opacity-50"
         onClick={handleBackgroundClick}
       ></div>
-      <div className="modal-content bg-white p-6 rounded-lg shadow-lg relative">
+      <div className="bg-white p-6 rounded-lg shadow-lg relative md:w-3/5 w-4/5 ">
         <div className="flex flex-col justify-between text-black font-mono">
           <h2 className="text-xl font-bold">{person.name}</h2>
           {person.homeworld && (

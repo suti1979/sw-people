@@ -22,13 +22,15 @@ export default async function People({ searchParams: { pageId = "1" } }: Props) 
   return (
     <main className="container mx-auto flex min-h-screen  flex-col items-center justify-between mt-4">
       <Search />
+      <h1 className="text-4xl font-bold text-center text-yellow-500 md:w-3/5 w-4/5 p-4 rounded-xl">
+        Star Wars People <span className=" font-mono text-sm ">page: {pageId}</span>
+      </h1>
       <section className="w-full flex flex-col items-center justify-center ">
         {swPeopleData.results.map((person) => (
           <Card key={person.name} person={person} />
         ))}
       </section>
-
-      <section className="flex gap-8 my-8">
+      <footer className="flex gap-8 my-8">
         {swPeopleData.previous && (
           <Link href={`/people/?pageId=${parseInt(pageId) - 1}`}>
             <span className="p-4 rounded bg-slate-500 hover:bg-slate-200 hover:text-black">
@@ -43,7 +45,7 @@ export default async function People({ searchParams: { pageId = "1" } }: Props) 
             </span>
           </Link>
         )}
-      </section>
+      </footer>
     </main>
   )
 }

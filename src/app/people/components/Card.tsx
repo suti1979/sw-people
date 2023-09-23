@@ -10,7 +10,7 @@ export default function Card({ person }: { person: SwapiPersonResult }) {
     <>
       <div
         onClick={() => setIsModalOpen(true)}
-        className="flex  items-center justify-center gap-4 md:w-3/5 w-4/5 h-min-48 p-4 m-4 bg-gray-700 rounded-xl shadow-md cursor-pointer hover:bg-gray-500"
+        className="flex items-center justify-center border-2 border-gray-600 gap-4 md:w-3/5 w-4/5 h-min-48 p-4 m-4 bg-gray-700 rounded-xl shadow-md cursor-pointer hover:bg-gray-500"
       >
         <div className="w-2/5  ">
           <Image
@@ -24,7 +24,7 @@ export default function Card({ person }: { person: SwapiPersonResult }) {
         </div>
         <div className="w-3/5 text-right font-mono ">
           <p>
-            <span className="font-bold">{person.name}</span>
+            <span className="font-bold text-yellow-500">{person.name}</span>
           </p>
         </div>
       </div>
