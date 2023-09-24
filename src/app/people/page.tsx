@@ -6,7 +6,9 @@ import Search from "./components/Search"
 const API_URL = "https://swapi.dev/api/people/?page="
 
 async function getSwPeople(pageId: string) {
-  const res = await fetch(`${API_URL}${pageId}`)
+  const res = await fetch(`${API_URL}${pageId}`, {
+    cache: "no-store", // try for Vercel test purposes, no need for this actully
+  })
   return res.json()
 }
 
