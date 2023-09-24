@@ -14,8 +14,8 @@ export default function Card({ person }: { person: SwapiPersonResult }) {
       >
         <div className="w-2/5  ">
           <Image
-            src={"https://picsum.photos/100?random"}
-            alt="avatar"
+            src={`https://picsum.photos/100?random=${person.birth_year}`}
+            alt={person.name}
             width={100}
             height={100}
             priority={true}
