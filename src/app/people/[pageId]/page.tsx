@@ -1,24 +1,22 @@
 import { SwapiPerson } from "@/types/swapi"
-import Card from "./components/Card"
+import Card from "../components/Card"
 import Link from "next/link"
-import Search from "./components/Search"
+import Search from "../components/Search"
 
 const API_URL = "https://swapi.dev/api/people/?page="
 
 async function getSwPeople(pageId: string) {
-  const res = await fetch(`${API_URL}${pageId}`, {
-    cache: "no-store", // try for Vercel test purposes, no need for this actully
-  })
+  const res = await fetch(`${API_URL}${pageId}`)
   return res.json()
 }
 
 interface Props {
-  searchParams: {
+  params: {
     pageId: string
   }
 }
 
-export default async function People({ searchParams: { pageId = "1" } }: Props) {
+export default async function People({ params: { pageId = "1" } }: Props) {
   const swPeopleData: SwapiPerson = await getSwPeople(pageId)
 
   return (
@@ -34,14 +32,14 @@ export default async function People({ searchParams: { pageId = "1" } }: Props) 
       </section>
       <footer className="flex gap-8 my-8">
         {swPeopleData.previous && (
-          <Link href={`/people/?pageId=${parseInt(pageId) - 1}`}>
+          <Link href={`/people/${parseInt(pageId) - 1}`}>
             <span className="p-4 rounded bg-slate-500 hover:bg-slate-200 hover:text-black">
               &#x2190;
             </span>
           </Link>
         )}
         {swPeopleData.next && (
-          <Link href={`/people/?pageId=${parseInt(pageId) + 1}`}>
+          <Link href={`/people/${parseInt(pageId) + 1}`}>
             <span className="p-4 rounded bg-slate-500 hover:bg-slate-200 hover:text-black">
               &#x2192;
             </span>
